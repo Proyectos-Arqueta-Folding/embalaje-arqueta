@@ -12,12 +12,25 @@ flete.
 Es una sola página (`index.html`, sin build step) con Alpine.js, sin servidor
 propio. Tiene dos modos:
 
-- **Compartido** (recomendado) — los datos viven en Supabase, así que lo que
-  guarda una computadora lo ven todas. La app se refresca sola cada 20
-  segundos; abajo a la derecha aparece "Sincronizado".
-- **Local** — si no hay Supabase configurado, todo se guarda en el
-  `localStorage` del navegador. Funciona igual, pero cada equipo tiene sus
-  propios datos. La etiqueta de abajo dice "Modo local · solo este equipo".
+- **Compartido** — los datos viven en Supabase, así que lo que guarda una
+  computadora lo ven todas. La app se refresca sola cada 20 segundos; abajo
+  a la derecha aparece "Sincronizado".
+- **Local** (el modo actual) — todo se guarda en el `localStorage` del
+  navegador. Funciona igual, pero cada equipo tiene sus propios datos. La
+  etiqueta de abajo dice "Modo local · solo este equipo".
+
+El catálogo completo (46 clientes, 197 productos, 3 camiones y 18 destinos)
+viaja dentro de `index.html`, así que la app siempre arranca con él aunque no
+haya base configurada. Si la base compartida está configurada pero no
+contesta, la app baja sola a modo local en vez de quedarse vacía, y lo avisa:
+"Modo local · la base compartida no responde".
+
+> **Estado hoy:** el proyecto de Supabase que estaba conectado
+> (`njemtpoxrrkdmsibcfhz`) ya no existe — su dominio dejó de resolver, y como
+> la app le pedía el catálogo a esa base, la pantalla salía vacía. Las
+> credenciales se vaciaron y la app volvió al catálogo que trae adentro. Para
+> recuperar la sincronización entre computadoras hay que crear un proyecto
+> nuevo con los pasos de abajo.
 
 ### Conectar Supabase (una sola vez)
 

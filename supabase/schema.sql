@@ -322,7 +322,16 @@ insert into destinations (id, name, cost_trailer, cost_torton, cost_camion_35, c
   (6, 'Puebla', 15000, 12000, 10200, null),
   (4, 'San Juan del Río', 13000, 10000, 8000, null),
   (8, 'San Luis Potosí', 21000, 18000, 14000, null),
-  (2, 'Zapopan', 25000, 22000, 17500, null);
+  (2, 'Zapopan', 25000, 22000, 17500, null),
+  -- Zonas del tarifario DHAGAMA (hoja "Tarifas Clientes") que faltaban.
+  -- N/A en el tarifario se guarda como null: esa unidad no da servicio ahí.
+  (12, 'Xochimilco', null, 4800, null, null),
+  (13, 'Veracruz', 24500, null, null, null),
+  (14, 'Azcapotzalco', null, 3200, null, null),
+  (15, 'Chalco', 7500, 6500, 4800, null),
+  (16, 'Guadalajara', 26000, 22000, 19000, null),
+  (17, 'Laredo', 42000, null, 31000, null),
+  (18, 'Nuevo Laredo', 44000, 36000, 34000, null);
 
 -- los ids se insertaron a mano: adelanta los contadores para que los nuevos no choquen
 select setval(pg_get_serial_sequence('clients','id'),      (select max(id) from clients));
